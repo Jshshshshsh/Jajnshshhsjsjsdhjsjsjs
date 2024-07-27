@@ -1,0 +1,29 @@
+{
+  "requestCount": {
+    "key-ofc": 5018,
+    "key-ofc2": 10,
+    "tito": 2
+  },
+  "keyLimits": {
+    "key-ofc": {
+      "limit": 100000,
+      "valid": true
+    },
+    "key-ofc2": {
+      "limit": 50,
+      "valid": true
+    },
+    "tito": {
+      "limit": 2,
+      "valid": false
+    },
+    "Oi": {
+      "limit": 3,
+      "valid": true
+    },
+    "O": {
+      "limit": 12,
+      "valid": true
+    }
+  }
+}

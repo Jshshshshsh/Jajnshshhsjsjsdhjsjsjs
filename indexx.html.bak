@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Administração</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://telegra.ph/file/36934a780515e6a109e65.jpg'); /* Definir imagem de fundo */
+      background-size: cover; /* Redimensionar a imagem para cobrir toda a tela */
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(51, 51, 51, 0.8); /* Fundo semi-transparente */
+      padding: 10px;
+      position: relative;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-icon {
+      width: 30px;
+      height: 4px;
+      background-color: #fff;
+      margin: 3px 0;
+    }
+    #theme-menu {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      background-color: rgba(51, 51, 51, 0.8); /* Fundo semi-transparente */
+      border: 1px solid #444;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    #theme-menu a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 5px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .user-list, .pending-requests {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .user-item, .pending-item {
+      background-color: rgba(34, 34, 34, 0.8); /* Fundo semi-transparente */
+      border: 2px solid red;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+    .button {
+      background-color: red;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="menu" onclick="toggleThemeMenu()">
+      <div class="menu-icon"></div>
+      <div class="menu-icon"></div>
+      <div class="menu-icon"></div>
+    </div>
+    <div class="title">PAINEL-ADM</div> <!-- Adiciona o título PAINEL-ADM -->
+    <div id="theme-menu" class="theme-menu">
+      <a href="#" onclick="setTheme('light')">Tema Branco</a>
+      <a href="#" onclick="setTheme('dark')">Tema Preto</a>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Solicitações Pendentes</h1>
+    <div id="pending-requests" class="pending-requests"></div>
+    <h1>Usuários</h1>
+    <div id="user-list" class="user-list"></div>
+    <!-- Adicionando o formulário para adicionar chaves -->
+    
+    
+  <h1>Adicionar Nova Chave</h1>
+<form id="add-key-form" style="display: flex; flex-direction: column; align-items: center; border: 2px solid red; border-radius: 5px; padding: 20px; width: 300px; margin: 20px auto;">
+  <label for="new-key" style="margin-bottom: 10px; color: #fff;">Chave:</label>
+  <input type="text" id="new-key" name="new-key" required style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%;">
+  
+  <label for="new-limit" style="margin-bottom: 10px; color: #fff;">Limite:</label>
+  <input type="number" id="new-limit" name="new-limit" required style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%;">
+  
+  <button type="submit" class="button" style="background-color: green; border: none; padding: 10px 20px; color: #fff; border-radius: 5px; cursor: pointer;">Adicionar Chave</button>
+</form>
+
+</div>
+
+<form id="delete-key-form" style="display: flex; flex-direction: column; align-items: center; border: 2px solid red; border-radius: 5px; padding: 20px; width: 300px; margin: 20px auto;">
+  <label for="delete-key" style="margin-bottom: 10px; color: #fff;">Chave para deletar:</label>
+  <input type="text" id="delete-key" name="delete-key" required style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%;">
+  
+  <button type="submit" class="button" style="background-color: red; border: none; padding: 10px 20px; color: #fff; border-radius: 5px; cursor: pointer;">Deletar Chave</button>
+  
+  <p id="delete-status" style="color: #fff; margin-top: 10px;"></p>
+</form>
+
+  </div>
+  
+  <script>
+    // Função para carregar e exibir as solicitações pendentes
+    const loadPendingRequests = async () => {
+      try {
+        const response = await fetch('/admin/requests');
+        if (!response.ok) throw new Error('Erro ao carregar solicitações');
+        const requests = await response.json();
+        const requestList = document.getElementById('pending-requests');
+        requestList.innerHTML = requests.map(request => `
+          <div class="pending-item">
+            <div>
+              <strong>Usuário:</strong> ${request.username}<br>
+              <strong>Senha:</strong> ${request.password}
+            </div>
+            <button class="button" onclick="acceptRequest('${request.username}')">Aceitar</button>
+            <button class="button" onclick="deleteRequest('${request.username}')">Deletar</button>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Erro ao carregar solicitações:', error);
+      }
+    };
+
+    // Função para aceitar uma solicitação
+    const acceptRequest = async (username) => {
+      try {
+        const response = await fetch(`/admin/requests/${username}`, { method: 'POST' });
+        if (!response.ok) throw new Error('Erro ao aceitar solicitação');
+        loadPendingRequests(); // Atualiza a lista após aceitação
+        loadUsers(); // Atualiza a lista de usuários após aceitação
+      } catch (error) {
+        console.error('Erro ao aceitar solicitação:', error);
+      }
+    };
+
+    // Função para deletar uma solicitação
+    const deleteRequest = async (username) => {
+      if (confirm(`Você tem certeza que deseja deletar a solicitação do usuário ${username}?`)) {
+        try {
+          const response = await fetch(`/admin/requests/${username}`, { method: 'DELETE' });
+          if (!response.ok) throw new Error('Erro ao deletar solicitação');
+          loadPendingRequests(); // Atualiza a lista após exclusão
+        } catch (error) {
+          console.error('Erro ao deletar solicitação:', error);
+        }
+      }
+    };
+
+    // Função para carregar e exibir os usuários
+    const loadUsers = async () => {
+      try {
+        const response = await fetch('/admin/users');
+        if (!response.ok) throw new Error('Erro ao carregar usuários');
+        const users = await response.json();
+        const userList = document.getElementById('user-list');
+        userList.innerHTML = users.map(user => `
+          <div class="user-item">
+            <div>
+              <strong>Usuário:</strong> ${user.username}<br>
+              <strong>Senha:</strong> ${user.password}
+            </div>
+            <button class="button" onclick="deleteUser('${user.username}')">Deletar</button>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Erro ao carregar usuários:', error);
+      }
+    };
+
+    // Função para deletar um usuário
+    const deleteUser = async (username) => {
+      if (confirm(`Você tem certeza que deseja deletar o usuário ${username}?`)) {
+        try {
+          const response = await fetch(`/admin/users/${username}`, { method: 'DELETE' });
+          if (!response.ok) throw new Error('Erro ao deletar usuário');
+          loadUsers(); // Atualiza a lista após exclusão
+        } catch (error) {
+          console.error('Erro ao deletar usuário:', error);
+        }
+      }
+    };
+
+    // Função para alternar o menu de temas
+    const toggleThemeMenu = () => {
+      const themeMenu = document.getElementById('theme-menu');
+      themeMenu.style.display = themeMenu.style.display === 'block' ? 'none' : 'block';
+    };
+
+    // Função para definir o tema
+    const setTheme = (theme) => {
+      document.body.classList.remove('light-mode', 'dark-mode');
+      document.body.classList.add(theme === 'light' ? 'light-mode' : 'dark-mode');
+      document.getElementById('theme-menu').style.display = 'none'; // Ocultar menu após seleção
+      localStorage.setItem('theme', theme); // Salvar preferência de tema
+    };
+
+    // Carregar o tema salvo no localStorage
+    const loadTheme = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+    };
+// Função para adicionar uma nova chave
+const addKey = async (event) => {
+  event.preventDefault();
+  
+  const key = document.getElementById('new-key').value;
+  const limit = parseInt(document.getElementById('new-limit').value, 10);
+  
+  try {
+    const response = await fetch('/admin/keys', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ key, limit })
+    });
+    
+    if (!response.ok) throw new Error('Erro ao adicionar chave');
+    
+    // Limpa o formulário e atualiza a lista de usuários
+    document.getElementById('add-key-form').reset();
+    loadUsers();
+  } catch (error) {
+    console.error('Erro ao adicionar chave:', error);
+  }
+};
+// Adiciona o listener para o formulário
+document.getElementById('add-key-form').addEventListener('submit', addKey);
+
+
+  
+
+
+
+  document.getElementById('delete-key-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const keyToDelete = document.getElementById('delete-key').value;
+    const statusElement = document.getElementById('delete-status');
+    
+    try {
+      const response = await fetch(`/admin/keys/${keyToDelete}`, { method: 'DELETE' });
+      if (!response.ok) throw new Error('Erro ao deletar chave');
+
+      const result = await response.json();
+      if (result.success) {
+        statusElement.textContent = `Chave '${keyToDelete}' deletada com sucesso.`;
+        statusElement.style.color = 'lightgreen';
+      } else {
+        statusElement.textContent = `Chave '${keyToDelete}' não encontrada.`;
+        statusElement.style.color = 'red';
+      }
+    } catch (error) {
+      console.error('Erro ao deletar chave:', error);
+      statusElement.textContent = 'Erro ao deletar chave.';
+      statusElement.style.color = 'red';
+    }
+  });
+
+
+
+
+
+    // Carregar o tema ao iniciar
+    loadTheme();
+
+    // Carregar as solicitações pendentes e usuários ao iniciar
+    loadPendingRequests();
+    loadUsers();
+  </script>
+</body>
+</html>

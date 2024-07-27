@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mensagens</title>
+  <style>
+    /* Estilos gerais */
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://telegra.ph/file/50c476b6e4af02836df93.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Cabeçalho */
+    .header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .header-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .header-buttons button {
+      font-size: 24px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .header-buttons button:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.1);
+    }
+
+    .header-buttons #close {
+      background: rgba(255, 0, 0, 0.7);
+    }
+
+    .header-buttons #delete-all {
+      background: rgba(0, 0, 255, 0.7);
+    }
+
+    h1 {
+      font-size: 48px;
+      margin: 0;
+      color: #fff;
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    h2 {
+      font-size: 36px;
+      color: #f8f8f8;
+      margin-bottom: 20px;
+    }
+
+    /* Lista de mensagens */
+    .message-container {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 800px;
+      height: calc(100% - 160px);
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+      border-bottom: 2px solid #666;
+      padding: 20px;
+      font-size: 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .timestamp {
+      font-size: 16px;
+      color: #ccc;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .reply-button {
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: green;
+      color: white;
+      margin-left: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .reply-button:hover {
+      background-color: darkgreen;
+      transform: scale(1.1);
+    }
+
+    /* Lista de usuários */
+    .user-container {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .user-box {
+      border: 4px solid red;
+      border-radius: 10px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .user-box:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Bem-vindo, <%= user.username %></h1>
+      <div class="header-buttons">
+        <button id="close" onclick="location.href='/docs'">X</button>
+        <button id="delete-all">Lixeira</button>
+      </div>
+    </div>
+    <div class="message-container">
+      <h2>Suas Mensagens</h2>
+      <ul id="message-list">
+        <% messages.forEach(msg => { %>
+          <li class="message-item <%= msg.read ? '' : 'unread' %>" data-id="<%= msg.id %>">
+            <strong><%= msg.from %>:</strong> <%= msg.message %>
+            <span class="timestamp"><%= new Date(msg.timestamp).toLocaleString('pt-BR') %></span>
+            <button class="reply-button" onclick="replyMessage('<%= msg.from %>')">Responder</button>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="user-container" id="user-list">
+      <!-- Usuários serão carregados aqui -->
+    </div>
+  </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Função para apagar todas as mensagens
+    function deleteAllMessages() {
+      fetch('/delete-all-messages', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          document.querySelectorAll('.message-item').forEach(item => item.remove());
+        } else {
+          alert('Erro ao excluir todas as mensagens.');
+        }
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao tentar excluir todas as mensagens.');
+      });
+    }
+
+    document.getElementById('delete-all').addEventListener('click', deleteAllMessages);
+
+    // Função para carregar usuários
+    function loadUsers() {
+      fetch('./users.json')
+        .then(response => response.json())
+        .then(users => {
+          const userList = document.getElementById('user-list');
+          users.forEach(user => {
+            if (user.username) {
+              const userBox = document.createElement('div');
+              userBox.className = 'user-box';
+              userBox.textContent = user.username;
+              userBox.onclick = () => replyMessage(user.username);
+              userList.appendChild(userBox);
+            }
+          });
+        })
+        .catch(error => {
+          console.error('Erro ao carregar os usuários:', error);
+        });
+    }
+
+    loadUsers();
+  });
+
+  function replyMessage(to) {
+    const response = prompt('Digite sua resposta:');
+    if (response) {
+      fetch('/send-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: to, message: response })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          alert('Resposta enviada com sucesso!');
+          location.reload();
+        } else {
+          alert('Erro ao enviar a resposta.');
+        }
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao tentar enviar a resposta.');
+      });
+    }
+  }
+</script>
+</body>
+</html>

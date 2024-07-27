@@ -1,0 +1,27 @@
+[
+  {
+    "from": "Frost.M4ax",
+    "message": "sim vou, mais já e 7 hora",
+    "timestamp": "2024-07-26T10:02:51.823Z",
+    "read": false
+  },
+  {
+    "from": "Frost.M4ax",
+    "message": "vou",
+    "timestamp": "2024-07-26T10:02:59.224Z",
+    "read": false
+  },
+  {
+    "from": "Ccgg",
+    "message": "oi",
+    "timestamp": "2024-07-26T10:17:35.935Z",
+    "read": false
+  },
+  {
+    "to": "Frost.M4ax",
+    "from": "Ccgg",
+    "message": "ola",
+    "timestamp": "2024-07-26T14:22:30.822Z",
+    "read": false
+  }
+]

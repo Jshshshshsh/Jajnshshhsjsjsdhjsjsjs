@@ -1,0 +1,41 @@
+{
+  "requestCount": {
+    "nova-key": 10,
+    "nova": 1,
+    "julio12345": 5,
+    "nova1": 1,
+    "nova2": 7,
+    "ale1": 5,
+    "key-ofc": 4
+  },
+  "keyLimits": {
+    "key-ofc": {
+      "limit": 100000,
+      "valid": true
+    },
+    "julio12345": {
+      "limit": 5,
+      "valid": false
+    },
+    "nova-key": {
+      "limit": 10,
+      "valid": false
+    },
+    "nova": {
+      "limit": 1,
+      "valid": false
+    },
+    "nova1": {
+      "limit": 1,
+      "valid": false
+    },
+    "nova2": {
+      "limit": 7,
+      "valid": false
+    },
+    "ale1": {
+      "limit": 5,
+      "valid": false
+    }
+  }
+}

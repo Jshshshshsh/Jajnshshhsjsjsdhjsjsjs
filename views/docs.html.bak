@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://i.pinimg.com/736x/4b/7e/27/4b7e27dde43758a0544fe9abf6b180b9.jpg" rel="icon" />
+    <title>Frost.M4ax - Rest-Apis</title>  
+     <link href="https://i.pinimg.com/736x/4b/7e/27/4b7e27dde43758a0544fe9abf6b180b9.jpg" rel="icon" />
+    <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/owl-carousel-2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg"><link rel="stylesheet" href="ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <link rel="shortcut icon" href="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg"><link rel="stylesheet" href="ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <script src="ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+   <meta name="description" content="Frost.M4ax - API">
+   <meta property="og:image" content="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg">
+   <meta property="og:site_name" content="Frost.M4ax API">
+   <meta name="keywords" content="Frost.M4ax REST API">
+   <meta name="author" content="Newton">
+  </head>
+  
+  <body>
+  <body id="page-top" onload="getvisitor();">
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo rounded-circle" href="#"><img src="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="#"><img src="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg" class="rounded-circle" alt="logo" /></a>
+        </div>
+       <font face="Original Surfer">
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">Frost.M4ax</h5>
+                  <span>Abuse dos recursos :(</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Docs</span>
+          </li>
+          <li class="nav-item menu-items">
+          <a class="nav-link" href="#">
+          <span class="menu-icon">
+          <i class="mdi mdi-home"></i>
+          </span>
+          <span class="menu-title">Home</span>
+          </a>
+          </li>
+          <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-downloader" aria-expanded="false" aria-controls="ui-downloader">
+          <span class="menu-icon">
+          <i class="mdi mdi-download"></i>
+          </span>
+          <span class="menu-title">API DE BAIXAR</span>
+          <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-downloader">
+          <ul class="nav flex-column sub-menu">
+
+         <li class="nav-item"> <a class="nav-link"href="api/download/play1?query=o%20moca&apikey=SUA_APIKEY">Play1</a></li>
+
+         <li class="nav-item"> <a class="nav-link"href="api/download/playaudio?query=o%20moca&apikey=SUA_APIKEY">Play_audio</a></li>
+         
+         <li class="nav-item"> <a class="nav-link"href="api/download/playvideo?query=o%20moca&apikey=SUA_APIKEY">Play_video</a></li>      
+                  <li class="nav-item"> <a class="nav-link"href="api/download/ytmp3?url=link_aqui&apikey=SUA_APIKEY">ytmp3-link</a></li>
+                  
+         <li class="nav-item"> <a class="nav-link"href="api/download/ytmp4?url=link_aqui&apikey=SUA_APIKEY">ytmp4-link</a></li>
+         
+                  <li class="nav-item"> <a class="nav-link"href="api/download/ytSearch?query=o%20moca&apikey=SUA_APIKEY">yt-search</a></li>      
+         
+         <li class="nav-item"> <a class="nav-link"href="api/download/letraMusica?query=another%20love&apikey=SUA_APIKEY">Letra-Musica</a></li>
+        
+                 <li class="nav-item"> <a class="nav-link"href="api/download/tiktok?url=link_aqui&apikey=SUA_APIKEY">tiktok-video</a></li>
+                 <li class="nav-item"> <a class="nav-link"href="api/download/instagram?url=link_aqui&apikey=SUA_APIKEY">insta-video</a></li>
+                                             
+                 <li class="nav-item"> <a class="nav-link"href="api/download/feicebook?url=link_aqui&apikey=SUA_APIKEY">feicebook</a></li>
+                                  
+      <li class="nav-item"> <a class="nav-link"href="api/download/pinterest_vd?url=loli&apikey=SUA_APIKEY">Pinterest_video</a></li>
+     
+                                  
+          </ul>
+          </div>
+          </li>
+          <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-stalker" aria-expanded="false" aria-controls="ui-stalker">
+          <span class="menu-icon">
+          <i class="mdi mdi-chart-bar"></i>
+          </span>
+          <span class="menu-title">PESQUISAS</span>
+          <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-stalker">
+          <ul class="nav flex-column sub-menu">
+          
+          <li class="nav-item"> <a class="nav-link"href="api/download/xnxx?query=free-fire&apikey=SUA_APIKEY">Xnxx-search</a></li>
+          
+                    <li class="nav-item"> <a class="nav-link"href="/download/anime?query=loli&apikey=SUA_APIKEY">Anime-search</a></li>
+                    <li class="nav-item"> <a class="nav-link"href="api/pesquisa/imgsearch?query=loli&apikey=SUA_APIKEY">imgsearch-search</a></li>
+                    
+                    <li class="nav-item"> <a class="nav-link"href="api/pesquisa/xvideos?query=loli&apikey=SUA_APIKEY">xvideos-search</a></li>
+          
+          <li class="nav-item"> <a class="nav-link"href="api/download/pinterest?query=loli&apikey=SUA_APIKEY">Pinterest</a></li>
+
+          <li class="nav-item"> <a class="nav-link"href="api/download/sticker-pack?query=loli&apikey=SUA_APIKEY">sticker-pack</a></li>
+         
+          
+
+          
+          </ul>
+          </div>
+          </li>
+          <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-anime" aria-expanded="false" aria-controls="ui-anime">
+          <span class="menu-icon">
+          <i class="mdi mdi-cat"></i>
+          </span>
+          <span class="menu-title">ANIME API</span>
+          <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-anime">
+          <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="api/hug?apikey=SUA_APIKEY">Hug</a></li>
+          
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/amv?apikey=APIKEY">Amv</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/toukachan?apikey=APIKEY">toukachan</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/akira?apikey=APIKEY">akira</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/itori?apikey=APIKEY">itori</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/kurumi?apikey=APIKEY">kurumi</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/yotsuba?apikey=APIKEY">yotsuba</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/shinomiya?apikey=APIKEY">shinomiya</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/yumeko?apikey=APIKEY">yumeko</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/waifu2?apikey=APIKEY">waifu2</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/waifu?apikey=APIKEY">waifu</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/miku?apikey=APIKEY">miku</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/loli?apikey=APIKEY">loli</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/shota?apikey=APIKEY">shota</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/pokemon?apikey=APIKEY">pokemon</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/ryujin?apikey=APIKEY">ryujin</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/rose?apikey=APIKEY">rose</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/kaori?apikey=APIKEY">kaori</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/shizuka?apikey=APIKEY">shizuka</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/kaga?apikey=APIKEY">kaga</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/kotori?apikey=APIKEY">kotori</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/mikasa?apikey=APIKEY">mikasa</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/akiyama?apikey=APIKEY">akiyama</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/gremory?apikey=APIKEY">gremory</a></li>     
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/isuzu?apikey=APIKEY">isuzu</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/cosplay?apikey=APIKEY">cosplay</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/shina?apikey=APIKEY">shina</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/kagura?apikey=APIKEY">kagura</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/shinka?apikey=APIKEY">shinka</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/eba?apikey=APIKEY">eba</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/deidara?apikey=APIKEY">deidara</a></li>
+     <li class="nav-item"> <a class="nav-link" href="/api/anime/jeni?apikey=APIKEY">jeni</a></li>
+               
+          </ul>
+          </div>
+          </li>
+          <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-random" aria-expanded="false" aria-controls="ui-random">
+          <span class="menu-icon">
+          <i class="mdi mdi-xing"></i>
+          </span>
+          <span class="menu-title">ALEATORIOS</span>
+          <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-random">
+          <ul class="nav flex-column sub-menu">
+          
+    <li class="nav-item"> <a class="nav-link" href="/api/cantadas?apikey=SUA_APIKEY">Cantadas</a></li>
+    
+    <li class="nav-item"> <a class="nav-link" href="/api/frasesdebomdia?apikey=SUA_APIKEY">Frases Bomdia</a></li> 
+
+    <li class="nav-item"> <a class="nav-link" href="/api/aleatorios/welcome?perfil=https://telegra.ph/file/890a6e6e3a7109fce41b3.jpg&number=55557777&name=SEJA BEM VINDO(A)&apikey=key-ofc">welcome</a></li> 
+
+    <li class="nav-item"> <a class="nav-link" href="/api/aleatorios/welcome?perfil=https://telegra.ph/file/890a6e6e3a7109fce41b3.jpg&number=55557777&name=SAIU DO GRUPO&apikey=key-ofc">Bye</a></li> 
+    
+    <li class="nav-item"> <a class="nav-link" href="/api/aleatorios/attp?query=oi&apikey=key-ofc">attp</a></li> 
+
+          </ul>
+          </div>
+          </li>
+          <li class="nav-item nav-category">
+          <span class="nav-link">Contate-me</span>
+          </li>
+          
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="https://wa.me/557999275667">
+              <span class="menu-icon">
+                <i class="mdi mdi-whatsapp"></i>
+              </span>
+              <span class="menu-title">WhatsApp</span>
+            </a>
+          </li>
+          
+          
+
+        </ul>
+       </font>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href=""><big><i class="mdi mdi-biohazard text-primary"></i></big></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            
+            <ul class="navbar-nav w-100">
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex ">
+                  <input type="text" class="form-control" placeholder="HyperBot APIs">
+                </form>
+              </li>
+            </ul>
+            
+            
+            
+<ul class="navbar-nav navbar-nav-right">
+  <li class="nav-item nav-settings d-none d-lg-block">
+    <a class="nav-link" href="#">
+      <i class="mdi mdi-view-grid"></i>
+    </a>
+  </li>
+  <li class="nav-item dropdown border-left">
+    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+      <i class="mdi mdi-bell"></i>
+      <span class="count bg-danger"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+      <h6 class="p-3 mb-0">Novas informações de atualização</h6>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item preview-item">
+        <div class="preview-thumbnail">
+          <div class="preview-icon bg-dark rounded-circle">
+            <i class="mdi mdi-calendar text-success"></i>
+          </div>
+        </div>
+        <div class="preview-item-content">
+          <p class="preview-subject mb-1">Alterar modelos</p>
+          <p class="text-muted ellipsis mb-0"> Só mudar o template mano :v </p>
+        </div>
+      </a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+      <div class="navbar-profile">
+        <img class="img-xs rounded-circle" src="https://telegra.ph/file/8c68cb133ae77b78954b1.jpg" alt="">
+        <p class="mb-0 d-none d-sm-block navbar-profile-name">Frost.M4ax</p>
+      </div>
+    </a>
+  </li>
+
+    <li class="nav-item">
+    <a id="sair" class="nav-link" href="#">
+      <i class="mdi mdi-logout" style="font-size: 1.5rem; font-weight: bold;"></i>
+    </a>
+  </li>
+  
+<li class="nav-item">
+  <a id="messages" class="nav-link" href="/docs2">
+    <i class="mdi mdi-message-outline" style="font-size: 1.5rem; font-weight: bold;"></i>
+  </a>
+  </li>
+  <a id="send-message" class="nav-link" href="#" onclick="document.getElementById('message-form').style.display='block'">
+    <i class="mdi mdi-send" style="font-size: 1.5rem; font-weight: bold;"></i>
+  </a>
+</li>
+
+<!-- Modal de envio de mensagem -->
+
+
+<form id="message-form" style="display:none;" action="/send-message" method="post">
+  <input type="text" name="username" placeholder="Nome do usuário" required>
+  <textarea name="message" placeholder="Sua mensagem" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
+
+
+
+</ul>
+
+              
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+
+                 
+
+                  </div>
+                
+              
+              
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="font-weight-bold text-info text-uppercase">Sua Bateria</h6>
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                        	<span id="batteryLevel"></span>
+                          <h3 class="mb-0" id="percentageLevel">Waiting...</h3>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-battery-positive"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <font face="Original Surfer" class="text-muted font-weight-normal">Porcentagem da sua bateria</font>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="font-weight-bold text-success text-uppercase">Visitantes</h5>
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h3 class="mb-0" id="visits">Waiting...</h3>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-eye icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <font face="Original Surfer" class="text-muted font-weight-normal">Visitantes Web</font>
+                  </div>
+                </div>
+              </div>
+            <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="font-weight-bold text-info text-uppercase">Data</h5>
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h4 class="mb-0" id="tanggal">Waiting...</h4>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-calendar icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <font face="Original Surfer" class="text-muted font-weight-normal">Data Agora</font>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="font-weight-bold text-success text-uppercase">Relogio</h5>
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <h4 class="mb-0" id="Clock">Waiting...</h4>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <span class="mdi mdi-clock icon-item"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <font face="Original Surfer" class="text-muted font-weight-normal" id="Ucapan">Ucapan</font>
+                  </div>
+                </div>
+              </div>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const logoutButton = document.getElementById('sair');
+
+  logoutButton.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+
+    if (confirm('Tem certeza de que deseja sair?')) {
+      window.location.href = '/login'; // Redirect to the login page
+    }
+  });
+});
+</script>
+
+
+
+
+            <div class="row">
+              <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+                    <div id="demo" class="alert btn btn-outline-danger" role="alert">
+                      <span id="Statistic">Waiting...</span>                    
+                  </div>
+                </div>
+              </div>
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <div class="bg-dark btn btn-block btn-outline-danger">
+                <font face="Original Surfer" class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <span id="Years">00</span> Frost.M4ax</font>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>       
+    <script>
+  swal({
+    title: 'Bem-vindo à minha REST API',
+    text: 'Use com sabedoria :)',
+    imageUrl: 'https://telegra.ph/file/8c68cb133ae77b78954b1.jpg',
+    imageWidth: 200,
+    imageHeight: 200,
+    imageAlt: 'Frost.M4ax',
+    animation: true
+  });
+</script>
+			<script>
+     (adsbygoogle = window.adsbygoogle || []).push({}); 
+</script>   
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <script src="vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <script src="js/off-canvas.js"></script>
+    <script src="js/hoverable-collapse.js"></script>
+    <script src="js/misc.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/todolist.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/ojan.js"></script>
+  </html>

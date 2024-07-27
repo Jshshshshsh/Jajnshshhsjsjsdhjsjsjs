@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Mengbadut">
+    <meta name="robots" content="archive, follow, imageindex, index, odp, snippet, translate">
+    <title>Frost.M4ax</title>
+    <meta property="og:site_name" name="og:site_name" content="Frost.M4ax">
+    <meta property="og:title" name="og:title" content="Frost.M4ax">
+    <meta property="og:url" name="og:url" content="/">
+    <meta property="og:image" content="https://telegra.ph/file/6719d0c50ffcadeba7827.jpg" /> 
+    <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+    <meta name="msapplication-TileColor" content="#292929">
+    <meta name="theme-color" content="#292929">
+    <link rel="shortcut icon" type="image/x-icon" href="https://telegra.ph/file/6719d0c50ffcadeba7827.jpg">
+    <link rel="icon" href="https://telegra.ph/file/6719d0c50ffcadeba7827.jpg" type="image/x-icon">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="canonical" href="/">
+</head>
+<body>
+    <div class="text">
+        <div class="status">
+            <p>API STATUS: <span class="typed-text"></span><span class="cursor typing"></span></p>
+        </div>
+        <hr>
+        <div class="readdocs">
+            <p>Abrir <a href="docs" class="docs">Docs</a></p>
+        </div>
+    </div>
+</body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+html {
+    background: url(https://telegra.ph/file/6719d0c50ffcadeba7827.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+div.text {
+    position: absolute;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+div.text .status,
+div.text .readdocs {
+    position: relative;
+    animation: animate 0.8s;
+    margin-bottom: 20px;
+}
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+p {
+    letter-spacing: 0.15em;
+    font-size: 15px !important;
+    font-weight: 600;
+}
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+a:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+}
+.typed-text {
+    color: #0f0;
+}
+.cursor {
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 1.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+}
+hr {
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.5);
+    width: 80%;
+    height: 2px;
+}
+</style>
+<script>
+const typedTextSpan = document.querySelector(".typed-text"),
+    textArray = ["ONLINE", "ATIVADA"],
+    typingDelay = 200,
+    erasingDelay = 100,
+    newTextDelay = 2000;
+let textArrayIndex = 0,
+    charIndex = 0;
+
+function type() {
+    if (charIndex < textArray[textArrayIndex].length) {
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 200);
+    } else {
+        setTimeout(erase, 2000);
+    }
+}
+
+function erase() {
+    if (charIndex > 0) {
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 100);
+    } else {
+        textArrayIndex++;
+        if (textArrayIndex >= textArray.length) {
+            textArrayIndex = 0;
+        }
+        setTimeout(type, 1300);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(type, 2250);
+});
+</script>
+</html>
